@@ -7,7 +7,7 @@ const NavBar = (props) => {
 
     return (
         <div className="NavBar">
-            { props.currentUser ? <h2>Welcome, {props.currentUser.name}!</h2> : "" }
+            { props.currentUser ? <h2>Welcome, {props.currentUser.attributes.name}!</h2> : "" }
             { props.currentUser ? <Logout/> : <Login/> }
         </div>
     )
