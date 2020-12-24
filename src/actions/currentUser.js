@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm.js"
+import { getMyStadiums } from "./myStadiums.js"
 
 // synchronous action creators 
 export const setCurrentUser = user => {
@@ -34,6 +35,7 @@ export const login = credentials => {
                 alert(user.error)
             } else {
                 dispatch(setCurrentUser(user.data))
+                dispatch(getMyStadiums())
                 dispatch(resetLoginForm()) 
             }
         })
@@ -56,6 +58,7 @@ export const getCurrentUser = () => {
                 alert(user.error)
             } else {
                 dispatch(setCurrentUser(user.data))
+                dispatch(getMyStadiums())
             }
         })
         .catch(console.log) 

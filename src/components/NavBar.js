@@ -7,7 +7,8 @@ const NavBar = (props) => {
 
     return (
         <div className="NavBar">
-            { props.currentUser ? <h2>Welcome, {props.currentUser.attributes.name}!</h2> : "" }
+            { props.currentUser ? <h2>Welcome, {props.currentUser.attributes.name}!</h2> : "" } 
+            { props.myStadiums ? <h3>Here are your visited stadiums:</h3> : <h3>You have no visited stadiums right now.</h3> }
             { props.currentUser ? <Logout/> : <Login/> }
         </div>
     )
@@ -15,7 +16,8 @@ const NavBar = (props) => {
 
 const mapStateToProps = state => {
     return {
-        currentUser: state.currentUser
+        currentUser: state.currentUser,
+        myStadiums: state.myStadiums 
     } 
 }
 

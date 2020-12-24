@@ -1,9 +1,10 @@
 import React from 'react' 
+import MyStadiums from './MyStadiums.js'
 
 export const MainContainer = () => {
     return (
         <div className="MainContainer">
-            In MainContainer component.
+            <MyStadiums/>
         </div>
     )
 }
