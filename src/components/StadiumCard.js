@@ -6,6 +6,8 @@ const StadiumCard = (props) => {
             {props.stadium.attributes.name}
             <br></br> 
             {props.stadium.attributes.city}
+            <br></br>
+            <img src={props.stadium.attributes.image} alt="Citi Field." height="300" width="400"></img>
         </p>
     )
 }
