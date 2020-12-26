@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm.js"
+import { resetSignUpForm } from './signUpForm.js'
 import { getMyStadiums } from "./myStadiums.js"
 
 // synchronous action creators 
@@ -42,6 +43,33 @@ export const login = credentials => {
         .catch(console.log) 
     }
 }
+
+export const signup = (credentials) => {
+    return dispatch => {
+      const userInfo = {
+        user: credentials
+      }
+      return fetch("http://localhost:3001/api/v1/signup", {
+        credentials: "include",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userInfo)
+      })
+        .then(resp => resp.json())
+        .then(resp => {
+          if (resp.error) {
+            alert(resp.error)
+          } else {
+            dispatch(setCurrentUser(resp.data))
+            dispatch(getMyStadiums())
+            dispatch(resetSignUpForm())
+          }
+        })
+        .catch(console.log)
+    }
+  }
 
 export const getCurrentUser = () => {
     return dispatch => {
