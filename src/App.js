@@ -1,9 +1,13 @@
 import React from 'react';
 import './App.css';
 import NavBar from "./components/NavBar.js"
+import Login from './components/Login.js'
+import Logout from './components/Logout.js'
+import SignUp from './components/SignUp.js'
+import MyStadiums from './components/MyStadiums.js'
 import { connect } from 'react-redux' 
 import { getCurrentUser } from "./actions/currentUser.js"
-import { MainContainer } from './components/MainContainer.js'
+import { Route } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -13,10 +17,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <NavBar/>
-        <MainContainer/>
-      </div>
+        <div className="App">
+          <Logout/>
+          <NavBar/>
+            <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/my-stadiums' component={MyStadiums} />
+        </div>
     );
 
   }
