@@ -20,7 +20,7 @@ export const clearCurrentUser = () => {
 
 
 // asynchronous action creators
-export const login = credentials => {
+export const login = (credentials, history) => {
     return dispatch => {
         return fetch("http://localhost:3001/api/v1/login", {
             credentials: "include", 
@@ -38,6 +38,7 @@ export const login = credentials => {
                 dispatch(setCurrentUser(user.data))
                 dispatch(getMyStadiums())
                 dispatch(resetLoginForm()) 
+                history.push('/')
             }
         })
         .catch(console.log) 
