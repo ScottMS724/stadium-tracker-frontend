@@ -4,10 +4,11 @@ import NavBar from "./components/NavBar.js"
 import Login from './components/Login.js'
 import Logout from './components/Logout.js'
 import SignUp from './components/SignUp.js'
+import Home from './components/Home.js'
 import MyStadiums from './components/MyStadiums.js'
 import { connect } from 'react-redux' 
 import { getCurrentUser } from "./actions/currentUser.js"
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -18,8 +19,9 @@ class App extends React.Component {
   render() {
     return (
         <div className="App">
-          <Logout/>
           <NavBar/>
+            { this.props.loggedIn ? <Logout/> : null}
+            <Route exact path ='/' render={() => this.props.loggedIn ? <MyStadiums/> : <Home/>} />
             <Route exact path='/signup' component={SignUp} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/my-stadiums' component={MyStadiums} />
@@ -29,4 +31,10 @@ class App extends React.Component {
   }
 }
 
-export default connect(null, { getCurrentUser })(App);
+const mapStateToProps = state => {
+  return ({
+    loggedIn: !!state.currentUser 
+  })
+}
+
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));

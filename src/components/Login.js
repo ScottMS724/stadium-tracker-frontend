@@ -16,7 +16,7 @@ const Login = (props) => {
 
     const handleSubmit = event => {
         event.preventDefault()
-        props.login(props.loginFormData)
+        props.login(props.loginFormData, props.history)
     }
 
     return (
