@@ -7,8 +7,8 @@ const NavBar = (props) => {
 
     return (
         <div className="NavBar">
-            <NavLink to="/stadiums">My Stadiums</NavLink> 
-            <NavLink to="/stadiums/new">New Stadium</NavLink> 
+            <NavLink exact activeClass to="/stadiums">My Stadiums</NavLink> 
+            <NavLink exact activeClass to="/stadiums/new">New Stadium</NavLink> 
             { props.loggedIn ? <Logout /> : null }
         </div>
     )
