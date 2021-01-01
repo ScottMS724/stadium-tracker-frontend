@@ -7,6 +7,12 @@ export const setMyStadiums = stadiums => {
     }
 }
 
+export const clearStadiums = () => {
+    return {
+        type: "CLEAR_STADIUMS"
+    }
+}
+
 // asynchronous actions
 
 export const getMyStadiums = () => {
