@@ -13,6 +13,13 @@ export const clearStadiums = () => {
     }
 }
 
+export const addStadium = stadium => {
+    return {
+        type: "ADD_STADIUM",
+        stadium
+    }
+}
+
 // asynchronous actions
 
 export const getMyStadiums = () => {
@@ -34,4 +41,27 @@ export const getMyStadiums = () => {
     })
     .catch(console.log)
   }
+}
+
+export const createStadium = stadiumData => {
+    return dispatch => {
+        const sendableStadiumData = {
+            name: stadiumData.name,
+            city: stadiumData.city,
+            image: stadiumData.image,
+            user_id: stadiumData.userId 
+        }
+        return fetch("http://localhost:3001/api/v1/stadiums", {
+            credentials: "include",
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(sendableStadiumData)
+        })
+            .then(resp => resp.json())
+            .then(console.log)
+            .catch(console.log)
+    }
+
 }
