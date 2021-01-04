@@ -9,7 +9,7 @@ const NavBar = (props) => {
         <div className="NavBar">
             <NavLink exact activeClass to="/stadiums">My Stadiums</NavLink> 
             <NavLink exact activeClass to="/stadiums/new">New Stadium</NavLink> 
-            { props.loggedIn ? <Logout /> : null }
+            { props.loggedIn ? <><p>Welcome to stadium tracker, {props.currentUser.attributes.name}!</p> <Logout /></> : null }
         </div>
     )
 }
