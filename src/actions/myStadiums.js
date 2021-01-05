@@ -60,7 +60,13 @@ export const createStadium = stadiumData => {
             body: JSON.stringify(sendableStadiumData)
         })
             .then(resp => resp.json())
-            .then(console.log)
+            .then(stadium => {
+                if (stadium.error) {
+                    alert(stadium.error)
+                } else {
+                    dispatch(addStadium(stadium.data))
+                }
+            })
             .catch(console.log)
     }
 
