@@ -5,7 +5,7 @@ const stadiumsReducer = (state = initialState, action) => {
         case "SET_MY_STADIUMS":
             return action.stadiums 
         case "ADD_STADIUM":
-            return state.stadiums.concat(action.stadiums)
+            return state.concat(action.stadium)
         case "CLEAR_STADIUMS":
             return initialState 
         default:
