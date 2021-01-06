@@ -9,4 +9,10 @@ export const updateNewStadiumForm = (name, value) => {
     }
 }
 
+export const resetNewStadiumForm = () => {
+    return {
+        type: "RESET_NEW_STADIUM_FORM"
+    }
+}
+
 // asynchroneous action creators 

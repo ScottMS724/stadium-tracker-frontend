@@ -1,3 +1,5 @@
+import { resetNewStadiumForm } from './newStadiumForm'
+
 // synchronous actions 
 
 export const setMyStadiums = stadiums => {
@@ -43,7 +45,7 @@ export const getMyStadiums = () => {
   }
 }
 
-export const createStadium = stadiumData => {
+export const createStadium = (stadiumData, history) => {
     return dispatch => {
         const sendableStadiumData = {
             name: stadiumData.name,
@@ -65,6 +67,8 @@ export const createStadium = stadiumData => {
                     alert(stadium.error)
                 } else {
                     dispatch(addStadium(stadium.data))
+                    dispatch(resetNewStadiumForm())
+                    history.push(`/stadiums/${stadium.data.id}`)
                 }
             })
             .catch(console.log)
