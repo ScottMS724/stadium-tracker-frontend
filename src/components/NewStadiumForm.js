@@ -16,7 +16,7 @@ const NewStadiumForm = ({ newStadiumFormData, history, updateNewStadiumForm, cre
         createStadium({
             ...newStadiumFormData,
             userId
-        })
+        }, history)
     }
 
     return (
