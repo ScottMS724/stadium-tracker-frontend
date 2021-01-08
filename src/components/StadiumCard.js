@@ -2,13 +2,13 @@ import React from 'react'
 
 const StadiumCard = (props) => {
     return (
-        <p>
-            {props.stadium.attributes.name}
-            <br></br> 
-            {props.stadium.attributes.city}
-            <br></br>
-            <img src={props.stadium.attributes.image} alt="Citi Field." height="300" width="400"></img>
-        </p>
+        props.stadium ?
+        <div>
+            <h2>{props.stadium.attributes.name}</h2>
+            <p>{props.stadium.attributes.city}</p>
+            <img src={props.stadium.attributes.image} alt="" height="300" width="400"></img>
+        </div> :
+        <p>StadiumCard with no stadium yet.</p>
     )
 }
 
