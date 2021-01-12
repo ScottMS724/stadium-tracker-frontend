@@ -105,6 +105,7 @@ export const updateStadium = (stadiumData, history) => {
                     alert(stadium.error)
                 } else {
                     dispatch(updateStadiumSuccess(stadium.data))
+                    dispatch(resetStadiumForm())
                     history.push(`/stadiums/${stadium.data.id}`)
                 }
             })
