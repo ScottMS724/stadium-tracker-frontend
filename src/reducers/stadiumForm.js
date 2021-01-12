@@ -13,6 +13,8 @@ const newStadiumFormReducer = (state = initialState, action) => {
             } 
         case "RESET_NEW_STADIUM_FORM":
             return initialState 
+        case "SET_FORM_DATA_FOR_EDIT":
+            return action.stadiumFormData 
         default:
             return state 
     }

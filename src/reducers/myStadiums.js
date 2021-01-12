@@ -6,6 +6,8 @@ const stadiumsReducer = (state = initialState, action) => {
             return action.stadiums 
         case "ADD_STADIUM":
             return state.concat(action.stadium)
+        case "UPDATE_STADIUM":
+            return state.map(stadium => stadium.id === action.stadium.id ? action.stadium : stadium)
         case "CLEAR_STADIUMS":
             return initialState 
         default:

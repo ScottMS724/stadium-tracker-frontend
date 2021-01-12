@@ -1,4 +1,4 @@
-import { resetNewStadiumForm } from './newStadiumForm'
+import { resetStadiumForm } from './stadiumForm'
 
 // synchronous actions 
 
@@ -18,6 +18,13 @@ export const clearStadiums = () => {
 export const addStadium = stadium => {
     return {
         type: "ADD_STADIUM",
+        stadium
+    }
+}
+
+export const updateStadiumSuccess = stadium => {
+    return {
+        type: "UPDATE_STADIUM",
         stadium
     }
 }
@@ -67,7 +74,37 @@ export const createStadium = (stadiumData, history) => {
                     alert(stadium.error)
                 } else {
                     dispatch(addStadium(stadium.data))
-                    dispatch(resetNewStadiumForm())
+                    dispatch(resetStadiumForm())
+                    history.push(`/stadiums/${stadium.data.id}`)
+                }
+            })
+            .catch(console.log)
+    }
+
+}
+
+export const updateStadium = (stadiumData, history) => {
+    return dispatch => {
+        const sendableStadiumData = {
+            name: stadiumData.name,
+            city: stadiumData.city,
+            image: stadiumData.image,
+            user_id: stadiumData.userId 
+        }
+        return fetch(`http://localhost:3001/api/v1/stadiums/${stadiumData.stadiumId}`, {
+            credentials: "include",
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(sendableStadiumData)
+        })
+            .then(resp => resp.json())
+            .then(stadium => {
+                if (stadium.error) {
+                    alert(stadium.error)
+                } else {
+                    dispatch(updateStadiumSuccess(stadium.data))
                     history.push(`/stadiums/${stadium.data.id}`)
                 }
             })

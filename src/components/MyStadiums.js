@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const MyStadiums = (props) => {
     const stadiumCards = props.stadiums.length > 0 ?
-    props.stadiums.map(s => (<><Link key={s.id} to={`/stadiums/${s.id}`}>{s.attributes.name}</Link><br/></>)) :
+    props.stadiums.map(s => (<p key={s.id}><Link key={s.id} to={`/stadiums/${s.id}`}>{s.attributes.name}</Link></p>)) :
     null
     
     return stadiumCards 

@@ -3,7 +3,7 @@ import currentUserReducer from './reducers/currentUser.js'
 import loginFormReducer from './reducers/loginForm.js'
 import stadiumsReducer from './reducers/myStadiums.js'
 import signUpReducer from './reducers/signUpForm.js'
-import newStadiumFormReducer from './reducers/newStadiumForm.js'
+import stadiumFormReducer from './reducers/stadiumForm.js'
 import thunk from 'redux-thunk' 
 
 const reducer = combineReducers({ 
@@ -11,7 +11,7 @@ const reducer = combineReducers({
     loginForm: loginFormReducer,
     myStadiums: stadiumsReducer,
     signUpForm: signUpReducer,
-    newStadiumForm: newStadiumFormReducer 
+    stadiumForm: stadiumFormReducer 
   })
   
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; 
