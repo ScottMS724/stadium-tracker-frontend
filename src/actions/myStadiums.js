@@ -29,6 +29,13 @@ export const updateStadiumSuccess = stadium => {
     }
 }
 
+export const deleteStadiumSuccess = stadiumId => {
+    return {
+        type: "DELETE_STADIUM",
+        stadiumId 
+    }
+}
+
 // asynchronous actions
 
 export const getMyStadiums = () => {
@@ -110,4 +117,26 @@ export const updateStadium = (stadiumData, history) => {
             .catch(console.log)
     }
 
+}
+
+export const deleteStadium = (stadiumId, history) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/api/v1/stadiums/${stadiumId}`, {
+            credentials: "include",
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+            .then(resp => resp.json())
+            .then(stadium => {
+                if (stadium.error) {
+                    alert(stadium.error)
+                } else {
+                    dispatch(deleteStadiumSuccess(stadiumId))
+                    history.push(`/stadiums`)
+                }
+            })
+            .catch(console.log)
+    }
 }
