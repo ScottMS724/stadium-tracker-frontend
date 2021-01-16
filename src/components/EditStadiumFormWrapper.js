@@ -1,6 +1,6 @@
 import React from 'react'
 import StadiumForm from './StadiumForm.js'
-import { updateStadium } from '../actions/myStadiums.js'
+import { updateStadium, deleteStadium } from '../actions/myStadiums.js'
 import { setFormDataForEdit, resetStadiumForm } from '../actions/stadiumForm.js'
 import { connect } from 'react-redux'
 
@@ -28,9 +28,14 @@ class EditStadiumFormWrapper extends React.Component {
     }
 
     render () {
-        // const {history, handleSubmit } = this.props 
-        return <StadiumForm editMode history={this.history} handleSubmit={this.handleSubmit} />
+        const { history, deleteStadium, stadium } = this.props 
+        const stadiumId = stadium ? stadium.id : null 
+        return <>
+                <StadiumForm editMode handleSubmit={this.handleSubmit} />
+                <br/>
+                <button style={{color: "red"}} onClick={() => deleteStadium(stadiumId, history)}>Delete this stadium.</button>
+               </>
     }
 }
 
-export default connect(null, { updateStadium, setFormDataForEdit, resetStadiumForm })(EditStadiumFormWrapper)
+export default connect(null, { updateStadium, setFormDataForEdit, resetStadiumForm, deleteStadium })(EditStadiumFormWrapper)
