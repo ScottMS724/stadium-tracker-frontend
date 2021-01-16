@@ -88,8 +88,7 @@ export const updateStadium = (stadiumData, history) => {
         const sendableStadiumData = {
             name: stadiumData.name,
             city: stadiumData.city,
-            image: stadiumData.image,
-            user_id: stadiumData.userId 
+            image: stadiumData.image
         }
         return fetch(`http://localhost:3001/api/v1/stadiums/${stadiumData.stadiumId}`, {
             credentials: "include",
@@ -105,7 +104,6 @@ export const updateStadium = (stadiumData, history) => {
                     alert(stadium.error)
                 } else {
                     dispatch(updateStadiumSuccess(stadium.data))
-                    dispatch(resetStadiumForm())
                     history.push(`/stadiums/${stadium.data.id}`)
                 }
             })

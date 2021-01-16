@@ -13,7 +13,7 @@ const StadiumForm = ({ formData, updateStadiumForm, userId, handleSubmit, editMo
     return (
         <form onSubmit={event => {
             event.preventDefault()
-            handleSubmit(formData, userId)
+            handleSubmit(formData)
         }}>
             <input name="name" placeholder="Stadium name" onChange={handleChange} value={formData.name} />
             <input name="city" placeholder="Stadium location (city)" onChange={handleChange} value={formData.city} />

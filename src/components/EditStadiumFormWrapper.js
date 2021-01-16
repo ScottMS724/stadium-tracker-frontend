@@ -1,7 +1,7 @@
 import React from 'react'
 import StadiumForm from './StadiumForm.js'
 import { updateStadium } from '../actions/myStadiums.js'
-import { setFormDataForEdit } from '../actions/stadiumForm.js'
+import { setFormDataForEdit, resetStadiumForm } from '../actions/stadiumForm.js'
 import { connect } from 'react-redux'
 
 class EditStadiumFormWrapper extends React.Component {
@@ -10,13 +10,20 @@ class EditStadiumFormWrapper extends React.Component {
         this.props.stadium && this.props.setFormDataForEdit(this.props.stadium)
     }
 
-    handleSubmit = (formData, userId) => {
+    componentDidUpdate(prevProps) {
+        this.props.stadium && !prevProps.stadium && this.props.setFormDataForEdit(this.props.stadium)
+    }
+
+    componentWillUnmount() {
+        this.props.resetStadiumForm() 
+    }
+
+    handleSubmit = (formData) => {
         const { updateStadium, stadium, history } = this.props
 
         updateStadium({
             ...formData,
-            stadiumId: stadium.id, 
-            userId
+            stadiumId: stadium.id
         }, history)
     }
 
@@ -26,4 +33,4 @@ class EditStadiumFormWrapper extends React.Component {
     }
 }
 
-export default connect(null, { updateStadium, setFormDataForEdit })(EditStadiumFormWrapper)
+export default connect(null, { updateStadium, setFormDataForEdit, resetStadiumForm })(EditStadiumFormWrapper)

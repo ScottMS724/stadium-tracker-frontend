@@ -4,8 +4,8 @@ import { createStadium } from '../actions/myStadiums.js'
 import { connect } from 'react-redux'
 
 const NewStadiumFormWrapper = ({ history, createStadium }) => {
-    const handleSubmit = (event, formData, userId, history) => {
-        event.preventDefault()
+
+    const handleSubmit = (formData, userId) => {
         createStadium({
             ...formData,
             userId
