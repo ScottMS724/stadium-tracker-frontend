@@ -5,7 +5,6 @@ import Login from './components/Login.js'
 import SignUp from './components/SignUp.js'
 import Home from './components/Home.js'
 import MyStadiums from './components/MyStadiums.js'
-import StadiumForm from './components/StadiumForm.js'
 import StadiumCard from './components/StadiumCard.js'
 import NewStadiumFormWrapper from './components/NewStadiumFormWrapper.js'
 import EditStadiumFormWrapper from './components/EditStadiumFormWrapper.js'
@@ -30,13 +29,11 @@ class App extends React.Component {
             <Route exact path='/stadiums/new' component={NewStadiumFormWrapper}/>
             <Route exact path='/stadiums/:id' render={props => {
               const stadium = this.props.stadiums.find(stadium => stadium.id === props.match.params.id)
-              console.log(stadium)
               return <StadiumCard stadium={stadium} {...props}/>
             }
           }/>
             <Route exact path='/stadiums/:id/edit' render={props => {
               const stadium = this.props.stadiums.find(stadium => stadium.id === props.match.params.id)
-              console.log(stadium)
               return <EditStadiumFormWrapper stadium={stadium} {...props}/>
             }
           }/>

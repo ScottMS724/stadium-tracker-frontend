@@ -1,6 +1,5 @@
 import React from 'react' 
 import { connect } from 'react-redux'
-import StadiumCard from './StadiumCard.js'
 import { Link } from 'react-router-dom'
 
 const MyStadiums = (props) => {
