@@ -6,6 +6,7 @@ import SignUp from './components/SignUp.js'
 import Home from './components/Home.js'
 import MyStadiums from './components/MyStadiums.js'
 import StadiumCard from './components/StadiumCard.js'
+import VisitCard from './components/VisitCard.js'
 import NewStadiumFormWrapper from './components/NewStadiumFormWrapper.js'
 import EditStadiumFormWrapper from './components/EditStadiumFormWrapper.js'
 import { setFormDataForEdit } from './actions/stadiumForm.js'
@@ -37,6 +38,7 @@ class App extends React.Component {
               return <EditStadiumFormWrapper stadium={stadium} {...props}/>
             }
           }/>
+            <Route path='/visits' render={routerProps => <VisitCard {...routerProps} visits={this.props.visits}/>} />
         </div>
     );
 
@@ -46,7 +48,8 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return ({
     loggedIn: !!state.currentUser, 
-    stadiums: state.myStadiums
+    stadiums: state.myStadiums,
+    visits: state.myVisits
   })
 }
 

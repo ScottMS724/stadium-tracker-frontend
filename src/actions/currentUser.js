@@ -1,6 +1,7 @@
 import { resetLoginForm } from "./loginForm.js"
 import { resetSignUpForm } from './signUpForm.js'
 import { getMyStadiums, clearStadiums } from "./myStadiums.js"
+import { getMyVisits } from "./myVisits.js"
 
 // synchronous action creators 
 export const setCurrentUser = user => {
@@ -89,6 +90,7 @@ export const getCurrentUser = () => {
             } else {
                 dispatch(setCurrentUser(user.data))
                 dispatch(getMyStadiums())
+                dispatch(getMyVisits())
             }
         })
         .catch(console.log) 
