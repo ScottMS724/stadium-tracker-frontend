@@ -19,18 +19,10 @@ const StadiumCard = (props) => {
 
             <h3>Here are all your past visits to this stadium:</h3>
 
-            <p><MyVisits visits={props.visits}/></p>
-
-            <Route path={`${props.match.url}/:visitId`} component={<VisitCard visits={props.visits} /> }/>
+            <MyVisits />
         </div> :
         null 
     )
 }
 
-const mapStateToProps = state => { 
-    return {
-        visits: state.myVisits 
-    }
-}
-
-export default connect(mapStateToProps)(StadiumCard) 
+export default StadiumCard 

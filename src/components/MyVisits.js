@@ -1,16 +1,27 @@
 import React from 'react' 
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const MyVisits = (props) => {
+    const renderVisits = props.visits.length > 0 ?
+    props.visits.map(v => (<p key={v.id}><Link key={v.id} to={`/visits/${v.id}`}>{v.attributes.date}</Link></p>)) :
+    null
     // const renderVisits = Object.keys(props.visits).map(visitId =>
-    //     <Link key={visitId} to={`/${props.match.url}/${visitId}`}>{props.visits[visitId].date}</Link>
+    //     <Link key={visitId} to={`/visits/${visitId}`}>{props.visits[visitId].date}</Link>
     //   );
      
       return (
         <div>
-          <h5>In MyVisits component for the list of all visits.</h5>
+            {renderVisits}
+          <h3>In MyVisits list component.</h3>
         </div>
       );
     };
 
-export default MyVisits
+const mapStateToProps = state => { 
+    return {
+        visits: state.myVisits
+    }
+}
+
+export default connect(mapStateToProps)(MyVisits)
