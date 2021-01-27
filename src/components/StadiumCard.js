@@ -19,7 +19,7 @@ const StadiumCard = (props) => {
 
             <h3>Here are all your past visits to this stadium:</h3>
 
-            <MyVisits />
+            <MyVisits matchProps={props.match.params.id} {...props}/>
         </div> :
         null 
     )
