@@ -22,6 +22,8 @@ const StadiumCard = ({stadium, visits, match}) => {
             <MyVisits visits={visits} matchId={match.params.id} matchURL={match.url} />
             
             <Route path={`${match.url}/visits/:visitId`} render={routerProps => <VisitCard {...routerProps} visits={visits} /> }/>
+
+            <p><Link to={`/`}>Add a visit.</Link></p>
         </div></Router> :
         null 
     )
