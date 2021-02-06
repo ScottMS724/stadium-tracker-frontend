@@ -31,6 +31,7 @@ class App extends React.Component {
             <Route exact path='/stadiums/:id' render={routerProps => {
               const stadium = this.props.stadiums.find(stadium => stadium.id === routerProps.match.params.id)
               return <StadiumCard {...routerProps} stadium={stadium} visits={this.props.visits} />
+  
             }
           }/>
             <Route exact path='/stadiums/:id/edit' render={props => {
@@ -38,7 +39,6 @@ class App extends React.Component {
               return <EditStadiumFormWrapper stadium={stadium} {...props}/>
             }
           }/>
-          {/* <Route exact path='stadiums/:stadiumId/visits/:visitId' render={routerProps => <VisitCard {...routerProps} /> }/> */}
         </div>
     );
 
