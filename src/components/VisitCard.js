@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const VisitCard = (props) => {
+const VisitCard = ({match, visits}) => {
+    const correctVisit = visits.find(visit => visit.id === match.params.visitId)
 
     return (
         <div>
-            <h3>VisitCard Component for specific visits.</h3>
+            <h3>{correctVisit.attributes.description}</h3>
         </div>
     );
 }
