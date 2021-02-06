@@ -1,5 +1,4 @@
 import React from 'react' 
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const MyVisits = ({ visits, matchId, matchURL }) => { 
@@ -9,7 +8,6 @@ const MyVisits = ({ visits, matchId, matchURL }) => {
 
     return (
         <div>
-          <h3>In MyVisits list component.</h3>
           {renderVisits}
         </div>
       );

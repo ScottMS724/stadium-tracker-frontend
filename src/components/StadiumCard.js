@@ -1,6 +1,5 @@
 import React from 'react' 
 import { Link, Route } from 'react-router-dom'
-import { connect } from 'react-redux'
 import MyVisits from './MyVisits.js'
 import VisitCard from './VisitCard.js'
 import { BrowserRouter as Router } from 'react-router-dom'

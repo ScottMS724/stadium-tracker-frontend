@@ -6,13 +6,12 @@ import SignUp from './components/SignUp.js'
 import Home from './components/Home.js'
 import MyStadiums from './components/MyStadiums.js'
 import StadiumCard from './components/StadiumCard.js'
-import VisitCard from './components/VisitCard.js'
 import NewStadiumFormWrapper from './components/NewStadiumFormWrapper.js'
 import EditStadiumFormWrapper from './components/EditStadiumFormWrapper.js'
 import { setFormDataForEdit } from './actions/stadiumForm.js'
 import { connect } from 'react-redux' 
 import { getCurrentUser } from "./actions/currentUser.js"
-import { Route, withRouter } from 'react-router-dom'
+import { Route, withRouter, Switch } from 'react-router-dom'
 
 class App extends React.Component {
 
