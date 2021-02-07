@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import MyVisits from './MyVisits.js'
 import VisitCard from './VisitCard.js'
+import VisitForm from './VisitForm.js'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 const StadiumCard = ({stadium, visits, match}) => {
@@ -23,7 +24,9 @@ const StadiumCard = ({stadium, visits, match}) => {
             
             <Route path={`${match.url}/visits/:visitId`} render={routerProps => <VisitCard {...routerProps} visits={visits} /> }/>
 
-            <p><Link to={`/`}>Add a visit.</Link></p>
+            <p><Link to={`/stadiums/${stadium.id}/newVisit`}>Add new visit.</Link></p>
+
+            <Route path={`${match.url}/newVisit`} render={routerProps => <VisitForm {...routerProps} stadiumId={stadium.id} /> } />
         </div></Router> :
         null 
     )
