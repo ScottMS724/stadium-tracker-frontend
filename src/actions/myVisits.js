@@ -43,7 +43,7 @@ export const createVisit = (visitData, history) => {
         const sendableVisitData = {
             date: visitData.date,
             description: visitData.description,
-            stadium_id: visitData.stadium_id
+            stadium_id: visitData.stadiumId
         }
         return fetch("http://localhost:3001/api/v1/visits", {
             credentials: "include",

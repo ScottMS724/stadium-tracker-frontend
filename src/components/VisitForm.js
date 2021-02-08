@@ -3,7 +3,7 @@ import { updateVisitForm } from '../actions/visitForm.js'
 import { createVisit } from '../actions/myVisits.js'
 import { connect } from 'react-redux'
 
-const VisitForm = ({ formData, stadiumId, updateVisitForm, history }) => {
+const VisitForm = ({ formData, stadiumId, updateVisitForm, createVisit, history }) => {
 
     const handleChange = event => {
         const { name, value } = event.target
@@ -35,4 +35,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { updateVisitForm })(VisitForm)
+export default connect(mapStateToProps, { updateVisitForm, createVisit })(VisitForm)
