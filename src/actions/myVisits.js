@@ -15,6 +15,13 @@ export const addVisit = visit => {
     }
 }
 
+export const deleteVisitSuccess = visitId => {
+    return {
+        type: "DELETE_VISIT",
+        visitId 
+    }
+}
+
 // asynchronous actions 
 
 export const getMyVisits = () => {
@@ -60,10 +67,32 @@ export const createVisit = (visitData, history) => {
                 } else {
                     dispatch(addVisit(visit.data))
                     dispatch(resetVisitForm())
-                    history.push(`/stadiums/${visit.data.stadium_id}`)
+                    history.push(`/stadiums/${visitData.stadiumId}`)
                 }
             })
             .catch(console.log)
     }
 
+}
+
+export const deleteVisit = (visitId, history) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/api/v1/visits/${visitId}`, {
+            credentials: "include",
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+            .then(resp => resp.json())
+            .then(visit => {
+                if (visit.error) {
+                    alert(visit.error)
+                } else { 
+                    dispatch(deleteVisitSuccess(visitId))
+                    history.push(`/stadiums/`)
+                }
+            })
+            .catch(console.log)
+    }
 }
