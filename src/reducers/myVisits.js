@@ -11,8 +11,8 @@ const visitsReducer = (state = initialState, action) => {
             return state.concat(action.visit)
         // case "UPDATE_VISITS":
         //     return state.map(visit => visit.id === action.visit.id ? action.visit : visit)
-        // case "DELETE_VISITS":
-        //     return state.filter(visit => visit.id === action.visitId ? false : true)
+            case "DELETE_VISITS":
+                return state.filter(visit => visit.id === action.visitId ? false : true)
         // case "CLEAR_VISITS":
         //     return initialState 
         default:
