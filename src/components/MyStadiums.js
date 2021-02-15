@@ -7,7 +7,7 @@ const MyStadiums = (props) => {
     props.stadiums.map(s => (<p key={s.id}><Link key={s.id} to={`/stadiums/${s.id}`}>{s.attributes.name}</Link></p>)) :
     null
     
-    return stadiumCards 
+    return stadiumCards
 }
 
 const mapStateToProps = state => { 

@@ -9,7 +9,7 @@ const StadiumCard = ({stadium, visits, match}) => {
     return (
         stadium ?
         <Router>
-        <div>
+        <div className="bg2 text-white">
             <h2>{stadium.attributes.name}</h2>
             <p>{stadium.attributes.city}</p>
             <img src={stadium.attributes.image} alt="" height="300" width="400"></img>
