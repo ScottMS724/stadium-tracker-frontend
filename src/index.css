@@ -68,7 +68,7 @@ footer p {
   background-image: url("https://touchdowntrips.com/wp-content/uploads/sites/2/2015/01/Twin-Stadium-Lights.jpg");
 
   /* Full height */
-  height: 100%; 
+  height: 100vh; 
 
   /* Center and scale the image */
   background-position: center;
