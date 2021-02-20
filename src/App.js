@@ -33,11 +33,11 @@ class App extends React.Component {
   
             }
           }/>
-            <Route exact path='/stadiums/:id/edit' render={props => {
+            {/* <Route exact path='/stadiums/:id/edit' render={props => {
               const stadium = this.props.stadiums.find(stadium => stadium.id === props.match.params.id)
               return <EditStadiumFormWrapper stadium={stadium} {...props}/>
             }
-          }/>
+          }/> */}
         </div>
     );
 

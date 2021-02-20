@@ -11,7 +11,6 @@ const StadiumForm = ({ formData, updateStadiumForm, userId, handleSubmit, editMo
     }
 
     return (
-        <div className="bg2">
         <form onSubmit={event => {
             event.preventDefault()
             handleSubmit(formData)
@@ -21,7 +20,6 @@ const StadiumForm = ({ formData, updateStadiumForm, userId, handleSubmit, editMo
             <input name="image" placeholder="image URL" onChange={handleChange} value={formData.image} />
             <input type="submit" value={editMode ? "Update Stadium" : "Create Stadium"} />
         </form>
-        </div>
 )}
 
 const mapStateToProps = state => {
