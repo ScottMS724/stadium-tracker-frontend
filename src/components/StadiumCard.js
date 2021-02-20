@@ -3,7 +3,8 @@ import { Link, Route } from 'react-router-dom'
 import MyVisits from './MyVisits.js'
 import VisitCard from './VisitCard.js'
 import VisitForm from './VisitForm.js'
-import { BrowserRouter as Router } from 'react-router-dom'
+import EditStadiumFormWrapper from './EditStadiumFormWrapper.js'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
 
 const StadiumCard = ({stadium, visits, match}) => {
     return (
@@ -15,6 +16,10 @@ const StadiumCard = ({stadium, visits, match}) => {
             <img src={stadium.attributes.image} alt="" height="300" width="400"></img>
             
             <p><Link to={`/stadiums/${stadium.id}/edit`}>Edit this stadium.</Link></p>
+
+            <Route exact path='/stadiums/:id/edit' render={routerProps => {
+              return <EditStadiumFormWrapper stadium={stadium} {...routerProps}/> }
+            }/>
 
             <br/>
 

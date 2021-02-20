@@ -12,7 +12,11 @@ const NewStadiumFormWrapper = ({ history, createStadium }) => {
         }, history)
     }
 
-    return <StadiumForm history={history} handleSubmit={handleSubmit} />
+    return (
+    <div className="bg2">
+        <StadiumForm history={history} handleSubmit={handleSubmit} />
+    </div>
+    )
 }
 
 export default connect(null, { createStadium })(NewStadiumFormWrapper)
