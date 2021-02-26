@@ -1,6 +1,7 @@
 import React from 'react' 
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 import Logout from './Logout.js'
 
 const NavBar = (props) => {
@@ -15,8 +16,10 @@ const NavBar = (props) => {
                     <h1>{ props.loggedIn ? <><p className="font-weight-bold">Welcome to stadium tracker, {props.currentUser.attributes.name}!</p> </> : null }</h1>
                         <p className="text-warning bg-dark">Never forget all your great times at the game! Record the stadiums you went to as well as every time you visited them!</p>
                     <p>
-                        <a className="btn btn-primary" href="/stadiums" type="button">My Stadiums</a>
-                        <a className="btn btn-secondary my-2" href="/stadiums/new" type="button">Add a Stadium</a>
+                        {/* <a className="btn btn-primary" href="/stadiums" type="button">My Stadiums</a> */}
+                        {/* <a className="btn btn-secondary my-2" href="/stadiums/new" type="button">Add a Stadium</a> */}
+                        <Button href="/stadiums">My Stadiums</Button>
+                        <Button className="btn btn-info" href="/stadiums/new">Add a Stadium</Button>
                     </p>
                 </div>
             </section>
