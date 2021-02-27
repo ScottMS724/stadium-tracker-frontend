@@ -1,5 +1,5 @@
 import React from 'react' 
-import { Link, Route } from 'react-router-dom'
+import { NavLink, Link, Route } from 'react-router-dom'
 import MyVisits from './MyVisits.js'
 import VisitCard from './VisitCard.js'
 import VisitForm from './VisitForm.js'
@@ -17,7 +17,9 @@ const StadiumCard = ({stadium, visits, match}) => {
             <p>{stadium.attributes.city}</p>
             <img src={stadium.attributes.image} alt="" height="300" width="400"></img>
             
-            <p><Link to={`/stadiums/${stadium.id}/edit`}>Edit this stadium.</Link></p>
+            <p><NavLink activeClass to={`/stadiums/${stadium.id}/edit`}>Edit this stadium.</NavLink></p>
+
+            {/* <NavLink activeClass key={visit.id} to={`${matchURL}/visits/${visit.id}`}>{visit.attributes.date}</NavLink> */}
 
             <Route exact path='/stadiums/:id/edit' render={routerProps => {
               return <EditStadiumFormWrapper stadium={stadium} {...routerProps}/> }
@@ -31,7 +33,7 @@ const StadiumCard = ({stadium, visits, match}) => {
             
             <Route path={`${match.url}/visits/:visitId`} render={routerProps => <VisitCard {...routerProps} visits={visits} /> }/>
 
-            <p><Link to={`/stadiums/${stadium.id}/newVisit`}>Add new visit.</Link></p>
+            <p><NavLink activeClass to={`/stadiums/${stadium.id}/newVisit`}>Add new visit.</NavLink></p>
 
             <Route path={`${match.url}/newVisit`} render={routerProps => <VisitForm {...routerProps} stadiumId={stadium.id} /> } />
         </div>
