@@ -89,8 +89,8 @@ export const deleteVisit = (visitId, history) => {
                 if (visit.error) {
                     alert(visit.error)
                 } else { 
-                    dispatch(deleteVisitSuccess(visitId))
                     history.push(`/stadiums/`)
+                    dispatch(deleteVisitSuccess(visitId))
                 }
             })
             .catch(console.log)
