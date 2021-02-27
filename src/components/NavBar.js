@@ -6,20 +6,26 @@ import Logout from './Logout.js'
 
 const NavBar = (props) => {
 
+    const handleClick = (event) => {
+        event.preventDefault()
+        props.history.push('/stadiums')
+    } 
+
+    const handleNewClick = (event) => {
+        event.preventDefault()
+        props.history.push('/stadiums/new')
+    } 
+
     return (
         <div className="NavBar bg">
-            {/* <NavLink exact activeClass to="/stadiums">My Stadiums</NavLink> 
-            <NavLink exact activeClass to="/stadiums/new">New Stadium</NavLink>  */}
-
+        
             <section className="jumbotron text-center bg">
                 <div className="container font-weight-bold">
                     <h1>{ props.loggedIn ? <><p className="font-weight-bold">Welcome to stadium tracker, {props.currentUser.attributes.name}!</p> </> : null }</h1>
                         <p className="text-warning bg-dark">Never forget all your great times at the game! Record the stadiums you went to as well as every time you visited them!</p>
                     <p>
-                        {/* <a className="btn btn-primary" href="/stadiums" type="button">My Stadiums</a> */}
-                        {/* <a className="btn btn-secondary my-2" href="/stadiums/new" type="button">Add a Stadium</a> */}
-                        <Button href="/stadiums">My Stadiums</Button>
-                        <Button className="btn btn-info" href="/stadiums/new">Add a Stadium</Button>
+                        <Button type="button" onClick={handleClick}>My Stadiums</Button>
+                        <Button className="btn btn-info" href="/stadiums/new" type="button" onClick={handleNewClick}>Add a Stadium</Button>
                     </p>
                 </div>
             </section>
