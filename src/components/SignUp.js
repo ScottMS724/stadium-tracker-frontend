@@ -20,6 +20,7 @@ const SignUp = (props) => {
     }
 
     return (
+        <div className="bg2">
         <form onSubmit={handleSubmit}>
             <input placeholder="name" name="name" type="text" value={props.SignUpFormData.name} onChange={handleInputChange} />
             <input placeholder="username" name="username" type="text" value={props.SignUpFormData.username} onChange={handleInputChange} /> 
@@ -27,6 +28,7 @@ const SignUp = (props) => {
             <input placeholder="image URL" name="img_url" type="text" value={props.SignUpFormData.img_url} onChange={handleInputChange} />
             <input type="submit" value="Sign Up" /> 
         </form>
+        </div>
     )
 }
 

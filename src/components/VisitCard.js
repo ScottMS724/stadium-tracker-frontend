@@ -5,16 +5,11 @@ import { connect } from 'react-redux'
 const VisitCard = ({match, visits, deleteVisit, history}) => {
     const correctVisit = visits.find(visit => visit.id === match.params.visitId)
 
-    const handleClick = (event) => {
-        event.preventDefault()
-        deleteVisit(correctVisit.id, history)
-    }
-
     return (
         <div>
             <h3>{correctVisit.attributes.description}</h3>
 
-            <button style={{color: "red"}} onClick={handleClick}>Delete this visit.</button>
+            <button style={{color: "red"}} onClick={() => deleteVisit(correctVisit.id, history)}>Delete this visit.</button>
         </div>
     );
 }

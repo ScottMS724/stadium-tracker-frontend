@@ -22,7 +22,7 @@ class App extends React.Component {
   render() {
     return (
         <div className="App">
-            <Route path ='/' render={() => this.props.loggedIn ? <NavBar/> : <Home/>} />
+            <Route path ='/' render={routerProps => this.props.loggedIn ? <NavBar {...routerProps} /> : <Home/>} />
             <Route exact path='/signup' component={SignUp} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/stadiums' component={MyStadiums} />

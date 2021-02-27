@@ -9,6 +9,8 @@ const MyStadiums = (props) => {
     
     return (
         <div className="bg2">
+            <br></br>
+            <h1 style={{color: "white"}}>Your Stadiums</h1>
             {stadiumCards}
         </div>
     )
