@@ -19,8 +19,6 @@ const StadiumCard = ({stadium, visits, match}) => {
             
             <p><NavLink activeClass to={`/stadiums/${stadium.id}/edit`}>Edit this stadium.</NavLink></p>
 
-            {/* <NavLink activeClass key={visit.id} to={`${matchURL}/visits/${visit.id}`}>{visit.attributes.date}</NavLink> */}
-
             <Route exact path='/stadiums/:id/edit' render={routerProps => {
               return <EditStadiumFormWrapper stadium={stadium} {...routerProps}/> }
             }/>
@@ -31,15 +29,15 @@ const StadiumCard = ({stadium, visits, match}) => {
 
             <MyVisits visits={visits} matchId={match.params.id} matchURL={match.url} />
             
-            <Route path={`${match.url}/visits/:visitId`} render={routerProps => <VisitCard {...routerProps} visits={visits} /> }/>
+            <Route exact path={`${match.url}/visits/:visitId`} render={routerProps => <VisitCard {...routerProps} visits={visits} /> }/>
 
             <p><NavLink activeClass to={`/stadiums/${stadium.id}/newVisit`}>Add new visit.</NavLink></p>
 
-            <Route path={`${match.url}/newVisit`} render={routerProps => <VisitForm {...routerProps} stadiumId={stadium.id} /> } />
+            <Route exact path={`${match.url}/newVisit`} render={routerProps => <VisitForm {...routerProps} stadiumId={stadium.id} /> } />
         </div>
         </Router> :
         null 
     )
 }
 
-export default StadiumCard 
+export default StadiumCard
