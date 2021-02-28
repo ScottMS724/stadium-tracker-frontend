@@ -10,7 +10,7 @@ const VisitCard = ({match, visits, deleteVisit, history}) => {
         <div>
             <h3>{correctVisit.attributes.description}</h3>
 
-            <Button className="btn btn-danger" type="button" onClick={() => deleteVisit(correctVisit.id, history)}>Delete this visit.</Button>
+            <Button className="btn btn-danger" type="button" onClick={() => deleteVisit(correctVisit.id, history, correctVisit)}>Delete this visit.</Button>
         </div>
     );
 }
