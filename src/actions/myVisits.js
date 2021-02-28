@@ -75,7 +75,7 @@ export const createVisit = (visitData, history) => {
 
 }
 
-export const deleteVisit = (visitId, history) => {
+export const deleteVisit = (visitId, history, correctVisit) => {
     return dispatch => {
         return fetch(`http://localhost:3001/api/v1/visits/${visitId}`, {
             credentials: "include",
@@ -89,7 +89,7 @@ export const deleteVisit = (visitId, history) => {
                 if (visit.error) {
                     alert(visit.error)
                 } else { 
-                    history.push(`/stadiums/`)
+                    history.push(`/stadiums/${correctVisit.attributes.stadium_id}`)
                     dispatch(deleteVisitSuccess(visitId))
                 }
             })
