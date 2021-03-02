@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const MyStadiums = (props) => {
     const stadiumCards = props.stadiums.length > 0 ?
     props.stadiums.map(s => (<p key={s.id}><Link key={s.id} to={`/stadiums/${s.id}`}>{s.attributes.name}</Link></p>)) :
-    null
+    <h3 style={{color: "yellow"}}>You have no stadiums yet. Click the button above to add your first stadium.</h3>
     
     return (
         <div className="bg2">

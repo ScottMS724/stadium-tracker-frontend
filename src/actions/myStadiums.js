@@ -134,7 +134,7 @@ export const deleteStadium = (stadiumId, history) => {
                     alert(stadium.error)
                 } else {
                     dispatch(deleteStadiumSuccess(stadiumId))
-                    history.push(`/stadiums`)
+                    history.push(`/`)
                 }
             })
             .catch(console.log)
