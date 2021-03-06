@@ -31,6 +31,7 @@ class EditStadiumFormWrapper extends React.Component {
         const { history, deleteStadium, stadium } = this.props 
         const stadiumId = stadium ? stadium.id : null 
         return <>
+                <h3>Editting Stadium</h3>
                 <StadiumForm editMode handleSubmit={this.handleSubmit} />
                 <br/>
                 <button style={{color: "red"}} onClick={() => deleteStadium(stadiumId, history)}>Delete this stadium.</button>
