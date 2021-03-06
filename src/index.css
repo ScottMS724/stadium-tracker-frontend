@@ -92,3 +92,10 @@ footer p {
 a {
   color: yellow;
 }
+
+.header_title {
+  color: white;
+  font-family: verdana;
+  font-size: 400%;
+  text-decoration: underline;
+}

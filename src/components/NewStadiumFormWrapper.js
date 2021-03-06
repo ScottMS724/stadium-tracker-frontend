@@ -15,7 +15,8 @@ const NewStadiumFormWrapper = ({ history, createStadium }) => {
     return (
     <div className="bg2">
         <br></br>
-        <h1 style={{color: "white"}}>Add a New Stadium</h1>
+        <br></br>
+        <h1 className="header_title">Add a New Stadium</h1>
         <StadiumForm history={history} handleSubmit={handleSubmit} />
     </div>
     )

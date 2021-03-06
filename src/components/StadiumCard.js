@@ -15,8 +15,8 @@ const StadiumCard = ({stadium, visits, match}) => {
         <div className="bg2 text-white">
             <br></br>
             <br></br>
-            <h2>{stadium.attributes.name}</h2>
-            <p>{stadium.attributes.city}</p>
+            <h2 className="header_title">{stadium.attributes.name}</h2>
+            <h4><p>{stadium.attributes.city}</p></h4>
             <img src={stadium.attributes.image} alt="" height="300" width="400"></img>
             
             <p><NavLink activeClass to={`/stadiums/${stadium.id}/edit`}>Edit this stadium.</NavLink></p>
