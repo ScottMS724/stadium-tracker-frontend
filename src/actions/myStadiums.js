@@ -40,7 +40,7 @@ export const deleteStadiumSuccess = stadiumId => {
 
 export const getMyStadiums = () => {
     return dispatch => {
-        return fetch("http://localhost:3001/api/v1/stadiums", {
+        return fetch("https://young-inlet-18987.herokuapp.com/api/v1/stadiums", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -67,7 +67,7 @@ export const createStadium = (stadiumData, history) => {
             image: stadiumData.image,
             user_id: stadiumData.userId 
         }
-        return fetch("http://localhost:3001/api/v1/stadiums", {
+        return fetch("https://young-inlet-18987.herokuapp.com/api/v1/stadiums", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -97,7 +97,7 @@ export const updateStadium = (stadiumData, history) => {
             city: stadiumData.city,
             image: stadiumData.image
         }
-        return fetch(`http://localhost:3001/api/v1/stadiums/${stadiumData.stadiumId}`, {
+        return fetch(`https://young-inlet-18987.herokuapp.com/api/v1/stadiums/${stadiumData.stadiumId}`, {
             credentials: "include",
             method: "PATCH",
             headers: {
@@ -121,7 +121,7 @@ export const updateStadium = (stadiumData, history) => {
 
 export const deleteStadium = (stadiumId, history) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/api/v1/stadiums/${stadiumId}`, {
+        return fetch(`https://young-inlet-18987.herokuapp.com/api/v1/stadiums/${stadiumId}`, {
             credentials: "include",
             method: "DELETE",
             headers: {

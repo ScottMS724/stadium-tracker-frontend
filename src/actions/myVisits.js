@@ -26,7 +26,7 @@ export const deleteVisitSuccess = visitId => {
 
 export const getMyVisits = () => {
     return dispatch => {
-        return fetch("http://localhost:3001/api/v1/visits", {
+        return fetch("https://young-inlet-18987.herokuapp.com/api/v1/visits", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -52,7 +52,7 @@ export const createVisit = (visitData, history) => {
             description: visitData.description,
             stadium_id: visitData.stadiumId
         }
-        return fetch("http://localhost:3001/api/v1/visits", {
+        return fetch("https://young-inlet-18987.herokuapp.com/api/v1/visits", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -77,7 +77,7 @@ export const createVisit = (visitData, history) => {
 
 export const deleteVisit = (visitId, history, correctVisit) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/api/v1/visits/${visitId}`, {
+        return fetch(`https://young-inlet-18987.herokuapp.com/api/v1/visits/${visitId}`, {
             credentials: "include",
             method: "DELETE",
             headers: {

@@ -18,12 +18,10 @@ export const clearCurrentUser = () => {
 }
 
 
-
-
 // asynchronous action creators
 export const login = (credentials, history) => {
     return dispatch => {
-        return fetch("http://localhost:3001/api/v1/login", {
+        return fetch("https://young-inlet-18987.herokuapp.com/api/v1/login", {
             credentials: "include", 
             method: "POST",
             headers: {
@@ -51,7 +49,7 @@ export const signup = (credentials, history) => {
       const userInfo = {
         user: credentials
       }
-      return fetch("http://localhost:3001/api/v1/signup", {
+      return fetch("https://young-inlet-18987.herokuapp.com/api/v1/signup", {
         credentials: "include",
         method: "POST",
         headers: {
@@ -76,7 +74,7 @@ export const signup = (credentials, history) => {
 
 export const getCurrentUser = () => {
     return dispatch => {
-        return fetch("http://localhost:3001/api/v1/get_current_user", {
+        return fetch("https://young-inlet-18987.herokuapp.com/api/v1/get_current_user", {
             credentials: "include", 
             method: "GET",
             headers: {
@@ -101,7 +99,7 @@ export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
         dispatch(clearStadiums())
-        return fetch("http://localhost:3001/api/v1/logout", {
+        return fetch("https://young-inlet-18987.herokuapp.com/api/v1/logout", {
             credentials: "include",
             method: "DELETE"
         })
