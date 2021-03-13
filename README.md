@@ -4,7 +4,7 @@
 This app allows users to keep track of recently visited professional sports stadiums. Each stadium is given their own name, location, and picture. Individual visits can be added to each stadium as well, and these visits have a date and description associated with them.
 
 <h2>Usage</h2>
-Deployment soon...
+<a href="https://stadium-tracker.netlify.app">Stadium Tracker</a>
 
 <h2>Contributing</h2>
 Bug reports and pull requests are welcome on GitHub at https://github.com/ScottMS724/stadium-tracker-frontend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
