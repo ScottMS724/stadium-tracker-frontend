@@ -60,6 +60,7 @@ export const getMyStadiums = () => {
 }
 
 export const createStadium = (stadiumData, history) => {
+    console.log("b")
     return dispatch => {
         const sendableStadiumData = {
             name: stadiumData.name,
@@ -67,6 +68,7 @@ export const createStadium = (stadiumData, history) => {
             image: stadiumData.image,
             user_id: stadiumData.userId 
         }
+        console.log("c")
         return fetch("https://young-inlet-18987.herokuapp.com/api/v1/stadiums", {
             credentials: "include",
             method: "POST",
@@ -77,6 +79,7 @@ export const createStadium = (stadiumData, history) => {
         })
             .then(resp => resp.json())
             .then(stadium => {
+                console.log("d")
                 if (stadium.error) {
                     alert(stadium.error)
                 } else {
@@ -86,7 +89,9 @@ export const createStadium = (stadiumData, history) => {
                 }
             })
             .catch(console.log)
+            console.log("e")
     }
+    console.log("f")
 
 }
 

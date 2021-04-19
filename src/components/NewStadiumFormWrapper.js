@@ -6,10 +6,12 @@ import { connect } from 'react-redux'
 const NewStadiumFormWrapper = ({ history, createStadium }) => {
 
     const handleSubmit = (formData, userId) => {
+        console.log("a")
         createStadium({
             ...formData,
             userId
         }, history)
+        console.log("g")
     }
 
     return (
