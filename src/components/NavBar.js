@@ -22,7 +22,7 @@ const NavBar = (props) => {
             <section className="jumbotron text-center bg">
                 <div className="container font-weight-bold">
                     <h1>{ props.loggedIn ? <><p className="font-weight-bold">Welcome to stadium tracker, {props.currentUser.attributes.name}!</p> </> : null }</h1>
-                        <p className="text-warning bg-dark">Never forget all your great times at the game! Record the stadiums you went to as well as every time you visited them!</p>
+                        <p className="text-warning bg-dark">Never forget all your great times at the game! Record all the stadiums you went to as well as every time you visited them!</p>
                     <p>
                         <Button type="button" onClick={handleClick}>My Stadiums</Button>
                         <Button className="btn btn-info" href="/stadiums/new" type="button" onClick={handleNewClick}>Add a Stadium</Button>
